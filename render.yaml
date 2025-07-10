@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: starring-happiness
+    env: python
+    buildCommand: ""
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: DB_NAME
+        value: starring_happiness
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASSWORD
+        value: ingee8952
+      - key: DB_HOST
+        value: localhost  # 如果你部署後有用 Render 提供的 PostgreSQL，要換成那個網址
+      - key: DB_PORT
+        value: 5432
+      - key: SECRET_KEY
+        value: 你的_flask_密鑰（可隨便設，例如：abc123xyz）
