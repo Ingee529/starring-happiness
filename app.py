@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 from flask import Flask, render_template
 from flask import request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash
@@ -5,8 +7,9 @@ from db import get_db_connection
 from flask import session
 from werkzeug.security import check_password_hash
 
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = 'Ingee8952'
+app.secret_key = os.getenv("SECRET_KEY")
 
 # 首頁
 @app.route('/')
