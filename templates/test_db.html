@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>資料庫測試</title>
+</head>
+<body>
+    <h1>Users 資料表內容</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>帳號</th>
+            <th>密碼 Hash</th>
+            <th>Email</th>
+            <th>暱稱</th>
+            <th>註冊時間</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+            <td>{{ user[4] }}</td>
+            <td>{{ user[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

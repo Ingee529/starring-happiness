@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常見問題 - 歌唱幸福論</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles_css.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ url_for('home') }}" class="logo">
+        歌唱幸福論<br>
+        <span>Starring happiness</span>
+      </a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="{{ url_for('articles') }}">文章</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-content">
+              <div class="dropdown-inner">
+                <a href="{{ url_for('music_style') }}">如何找到屬於自己的音樂風格</a>
+                <a href="{{ url_for('breathing') }}">呼吸技巧對唱歌的重要性</a>
+                <a href="{{ url_for('emotion') }}">音樂與情感的完美結合</a>
+                <a href="{{ url_for('confidence') }}">舞台表演的自信建立</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="{{ url_for('faq') }}">常見問題</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-content">
+              <div class="dropdown-inner">
+                <a href="{{ url_for('faq') }}#no-experience">完全沒有音樂基礎可以學習嗎？</a>
+                <a href="{{ url_for('faq') }}#class-type">課程是一對一教學還是團體課程？</a>
+                <a href="{{ url_for('faq') }}#instruments">需要自備樂器嗎？</a>
+                <a href="{{ url_for('faq') }}#schedule">如果無法固定時間上課怎麼辦？</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="{{ url_for('contact') }}">聯絡我們</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-content">
+              <div class="dropdown-inner">
+                <a href="{{ url_for('contact') }}#form">線上聯絡表單</a>
+                <a href="{{ url_for('contact') }}#phone">電話預約諮詢</a>
+                <a href="{{ url_for('contact') }}#location">教室地址資訊</a>
+                <a href="{{ url_for('contact') }}#hours">營業時間</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown right-nav">
+          <a href="{{ url_for('courses') }}">購買課程</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-content">
+              <div class="dropdown-inner">
+                <a href="{{ url_for('courses') }}#basic">基礎發聲課程</a>
+                <a href="{{ url_for('courses') }}#advanced">進階演唱技巧</a>
+                <a href="{{ url_for('courses') }}#creation">音樂創作班</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="glass-overlay"></div>
+  </header>
+
+  <main>
+    <section class="content-section">
+      <div class="content-header">
+        <h2>常見問題</h2>
+        <p>解答你在學習過程中的疑問</p>
+      </div>
+
+      <div class="faq-item" id="no-experience">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          完全沒有音樂基礎可以學習嗎？
+        </div>
+        <div class="faq-answer">
+          即使沒有任何音樂基礎，只要有熱忱，我們從最基礎的發聲與樂理開始，一步步帶領。
+        </div>
+      </div>
+
+      <div class="faq-item" id="class-type">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          課程是一對一教學還是團體課程？
+        </div>
+        <div class="faq-answer">
+          我們同時提供一對一與小班制團體課程，可依需求自由選擇。
+        </div>
+      </div>
+
+      <div class="faq-item" id="instruments">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          需要自備樂器嗎？
+        </div>
+        <div class="faq-answer">
+          基礎發聲課程不需任何樂器，高階與創作班會提供鍵盤教具，但也可自備吉他、鍵盤等。
+        </div>
+      </div>
+
+      <div class="faq-item" id="schedule">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          如果無法固定時間上課怎麼辦？
+        </div>
+        <div class="faq-answer">
+          我們採彈性排課制，可於平台上自行調整下次上課時間，確保進度不中斷。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 歌唱幸福論 Starring happiness. All rights reserved.</p>
+  </footer>
+  <script src="{{ url_for('static', filename='script_js.js') }}"></script>
+</body>
+</html>
