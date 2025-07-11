@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+import psycopg2
 from flask import Flask, render_template
 from flask import request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash
@@ -8,6 +9,13 @@ from flask import session
 from werkzeug.security import check_password_hash
 
 load_dotenv()
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
@@ -128,5 +136,13 @@ def test_db():
     conn.close()
     return render_template("test_db.html", users=users)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    try:
+        conn = get_db_connection()
+        print("✅ 資料庫連線成功！")
+        conn.close()
+    except Exception as e:
+        print("❌ 資料庫連線失敗：", e)
+
+    app.run(debug=True, port=8000)
