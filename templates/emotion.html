@@ -7,8 +7,59 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles_css.css') }}">
 </head>
 <body>
-  <!-- 同上 Header & Nav -->
-  <header>…同 breathing.html…</header>
+  <header>
+    <nav>
+      <a href="{{ url_for('home') }}" class="logo">
+        歌唱幸福論<br>
+        <span>Starring happiness</span>
+      </a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="{{ url_for('articles') }}">文章</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="{{ url_for('music_style') }}">如何找到屬於自己的音樂風格</a>
+              <a href="{{ url_for('breathing') }}">呼吸技巧對唱歌的重要性</a>
+              <a href="{{ url_for('emotion') }}">音樂與情感的完美結合</a>
+              <a href="{{ url_for('confidence') }}">舞台表演的自信建立</a>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="{{ url_for('faq') }}">常見問題</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="{{ url_for('faq') }}#no-experience">完全沒有音樂基礎可以學習嗎？</a>
+              <a href="{{ url_for('faq') }}#class-type">課程是一對一教學還是團體課程？</a>
+              <a href="{{ url_for('faq') }}#instruments">需要自備樂器嗎？</a>
+              <a href="{{ url_for('faq') }}#schedule">如果無法固定時間上課怎麼辦？</a>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="{{ url_for('contact') }}">聯絡我們</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="{{ url_for('contact') }}#form">線上聯絡表單</a>
+              <a href="{{ url_for('contact') }}#phone">電話預約諮詢</a>
+              <a href="{{ url_for('contact') }}#location">教室地址資訊</a>
+              <a href="{{ url_for('contact') }}#hours">營業時間</a>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown right-nav">
+          <a href="{{ url_for('courses') }}">購買課程</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="{{ url_for('courses') }}#basic">基礎發聲課程</a>
+              <a href="{{ url_for('courses') }}#advanced">進階演唱技巧</a>
+              <a href="{{ url_for('courses') }}#creation">音樂創作班</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <section class="content-section">
@@ -31,7 +82,9 @@
     </section>
   </main>
 
-  <footer>…同上…</footer>
+  <footer>
+    <p>&copy; 2025 歌唱幸福論 Starring happiness. All rights reserved.</p>
+  </footer>
   <script src="{{ url_for('static', filename='script_js.js') }}"></script>
 </body>
 </html>

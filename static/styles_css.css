@@ -20,7 +20,7 @@ body {
     justify-content: space-between;
 }
 
-/* Header - 動態延伸的導航列 */
+/* Header - 固定導航列 */
 header {
     background: #434343;
     backdrop-filter: blur(10px);
@@ -30,17 +30,18 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    transition: padding-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: visible;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100px;
 }
 
 header:has(.dropdown:hover) {
-    padding-bottom: 350px;
-    transition: padding-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 480px;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 header:not(:has(.dropdown:hover)) {
-    transition: padding-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav {
@@ -51,6 +52,7 @@ nav {
     align-items: flex-start;
     padding: 0 2rem;
     position: relative;
+    min-height: 80px;
 }
 
 .logo {
@@ -60,6 +62,9 @@ nav {
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
+    line-height: 1.2;
+    display: block;
+    padding: 0.5rem 0;
 }
 
 .logo:hover {
@@ -71,6 +76,8 @@ nav {
     font-size: 0.9rem;
     color: #FCFAF2;
     font-weight: normal;
+    display: block;
+    margin-top: 0.2rem;
 }
 
 .nav-links {
@@ -106,15 +113,12 @@ nav {
 
 .dropdown-menu {
     position: fixed;
-    top: 80px;
+    top: 100px;
     left: 0;
     width: 100vw;
     background: transparent;
-    color: #FCFAF2 !important;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 2.5rem 0;
     z-index: 999;
+    padding: 2.5rem 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -132,20 +136,24 @@ nav {
 }
 
 .dropdown-menu .dropdown-content {
-    /* 保持空白，因為在HTML中存在但這裡不需要特別樣式 */
+    display: block !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
 }
 
 .dropdown-menu .dropdown-inner {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding-left: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    text-align: left;
+    align-items: flex-start;
 }
 
 .dropdown-menu a {
+    width: 100%;
     color: #FCFAF2 !important;
     font-size: 1.15rem;
     padding: 18px 0;
@@ -153,11 +161,11 @@ nav {
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 0;
     display: block;
-    max-width: 700px;
     margin: 0;
     text-align: left;
     position: relative;
     overflow: hidden;
+    line-height: 1.4;
 }
 
 .dropdown-menu a::before {
@@ -189,14 +197,8 @@ nav {
 main {
     flex: 1;
     /* 改用 padding-top 確保內容不被 fixed header 遮擋 */
-    padding-top: 80px;
+    padding-top: 100px;
     /* 移除 min-height，讓 flex 自動拉滿剩餘空間 */
-    transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body:has(.dropdown:hover) main {
-    margin-top: 430px;
-    transition: margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Content Sections */
@@ -539,5 +541,10 @@ footer {
 .flash-message.fade-out {
     opacity: 0;
     pointer-events: none;
+}
+
+.dropdown-menu .dropdown-inner a {
+    text-align: left !important;
+    align-self: flex-start;
 }
 
